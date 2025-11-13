@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clearing Auth...</title>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <h1>Clearing authentication...</h1>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDKdfFbJ3yK3XTXLAF8O8k7dI8qLByVBp0",
+            authDomain: "flutter-chat-app-59d40.firebaseapp.com",
+            projectId: "flutter-chat-app-59d40"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        
+        firebase.auth().signOut().then(() => {
+            localStorage.clear();
+            sessionStorage.clear();
+            alert('Cleared! Redirecting to login...');
+            window.location.href = '/';
+        }).catch((error) => {
+            console.error('Error:', error);
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>
